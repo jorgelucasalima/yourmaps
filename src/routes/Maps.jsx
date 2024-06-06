@@ -44,7 +44,7 @@ export default function Maps() {
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
-            zoom={0.5}
+            zoom={2}
           >
             {users.map(user => (
               <Marker
