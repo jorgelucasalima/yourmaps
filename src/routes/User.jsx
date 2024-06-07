@@ -6,7 +6,7 @@ const validationSchema = Yup.object({
   name: Yup.string().required('Nome é obrigatório'),
   username: Yup.string().required('Nome de Usuário é obrigatório'),
   email: Yup.string().email('E-mail inválido').required('E-mail é obrigatório'),
-  phone: Yup.string().required('Celular é obrigatório'),
+  phone: Yup.number().required('Celular é obrigatório'),
   website: Yup.string().url('Site inválido').required('Site é obrigatório'),
   postalCode: Yup.string().required('Código Postal é obrigatório'),
   city: Yup.string().required('Cidade é obrigatória'),
@@ -38,17 +38,17 @@ export default function User() {
 
 
   return (
-<div className="mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <div className="mx-auto p-6 m-2 bg-white rounded-lg shadow-lg">
       <h2 className="text-3xl font-bold mb-6 text-gray-800">Criar Usuário</h2>
       <form onSubmit={formik.handleSubmit} className="space-y-6">
         <div>
-          <p className="text-xl font-semibold mb-2 text-gray-700">Dados Pessoais:</p>
+          <p className="text-md font-semibold mb-2 text-gray-700">Dados Pessoais:</p>
           <div className="space-y-4">
             <input
               type="text"
               name="name"
               placeholder="Nome"
-              className="w-full p-3 border rounded-lg"
+              className="w-full p-2 border rounded-lg"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.name}
@@ -60,7 +60,7 @@ export default function User() {
               type="text"
               name="username"
               placeholder="Nome de Usuário"
-              className="w-full p-3 border rounded-lg"
+              className="w-full p-2 border rounded-lg"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.username}
@@ -72,7 +72,7 @@ export default function User() {
               type="email"
               name="email"
               placeholder="E-mail"
-              className="w-full p-3 border rounded-lg"
+              className="w-full p-2 border rounded-lg"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.email}
@@ -84,7 +84,7 @@ export default function User() {
               type="text"
               name="phone"
               placeholder="Celular"
-              className="w-full p-3 border rounded-lg"
+              className="w-full p-2 border rounded-lg"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.phone}
@@ -96,7 +96,7 @@ export default function User() {
               type="text"
               name="website"
               placeholder="Site"
-              className="w-full p-3 border rounded-lg"
+              className="w-full p-2 border rounded-lg"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.website}
@@ -107,13 +107,13 @@ export default function User() {
           </div>
         </div>
         <div>
-          <p className="text-xl font-semibold mb-2 text-gray-700">Endereço:</p>
+          <p className="text-md font-semibold mb-2 text-gray-700">Endereço:</p>
           <div className="space-y-4">
             <input
               type="text"
               name="postalCode"
               placeholder="Código Postal"
-              className="w-full p-3 border rounded-lg"
+              className="w-full p-2 border rounded-lg"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.postalCode}
@@ -125,7 +125,7 @@ export default function User() {
               type="text"
               name="city"
               placeholder="Cidade"
-              className="w-full p-3 border rounded-lg"
+              className="w-full p-2 border rounded-lg"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.city}
@@ -137,7 +137,7 @@ export default function User() {
               type="text"
               name="street"
               placeholder="Rua"
-              className="w-full p-3 border rounded-lg"
+              className="w-full p-2 border rounded-lg"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.street}
@@ -149,7 +149,7 @@ export default function User() {
               type="text"
               name="number"
               placeholder="Número"
-              className="w-full p-3 border rounded-lg"
+              className="w-full p-2 border rounded-lg"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.number}
@@ -160,13 +160,13 @@ export default function User() {
           </div>
         </div>
         <div>
-          <p className="text-xl font-semibold mb-2 text-gray-700">Empresa:</p>
+          <p className="text-md font-semibold mb-2 text-gray-700">Empresa:</p>
           <div className="space-y-4">
             <input
               type="text"
               name="companyName"
               placeholder="Nome da Empresa"
-              className="w-full p-3 border rounded-lg"
+              className="w-full p-2 border rounded-lg"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.companyName}
@@ -178,7 +178,7 @@ export default function User() {
         </div>
         <button
           type="submit"
-          className="w-full p-3 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors"
+          className="w-full p-2 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors"
         >
           Cadastrar
         </button>

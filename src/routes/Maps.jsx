@@ -2,15 +2,20 @@ import { useState, useEffect } from 'react';
 
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import api from '../services/api';
+import Card from '../components/Card';
 export default function Maps() {
 
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
-    api.get('/users').then(response => {
-      setUsers(response.data);
-    });
+    api.get('/users')
+      .then(response => {
+        setUsers(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }, []);
 
   const containerStyle = {
@@ -34,12 +39,20 @@ export default function Maps() {
 
   return (
     <div className="p-4">
-      <h2>Encontre os usuários:</h2>
+      <h2 className="text-md font-bold mb-4">Encontre os usuários:</h2>
+
 
       <div className="mt-4">
         <LoadScript
           language='pt-BR'
           googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
+          loadingElement={
+            <div className=" items-center justify-center">
+              <div className="text-center">
+                <p className="text-lg text-gray-700">Carregando o Google Maps...</p>
+              </div>
+            </div>
+          }
         >
           <GoogleMap
             mapContainerStyle={containerStyle}
@@ -69,24 +82,24 @@ export default function Maps() {
               </InfoWindow>
             )}
           </GoogleMap>
+
         </LoadScript>
       </div>
 
       <div className="mt-4">
-        <h2 className="text-xl font-bold mb-2">Usuários:</h2>
-        {
-          <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lx:grid-cols-4 gap-2">
+        <h2 className="text-md font-bold mb-2">Usuários:</h2>
+        <div className="mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lx:grid-cols-4 gap-3">
             {users.map(user => (
-              <div key={user.id} className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-2xl font-bold mb-2">{user.name}</h2>
-                <p className="text-gray-700 mb-4">E-mail: {user.email}</p>
-                <p className="text-gray-700 mb-4">Cidade: {user.address.city}</p>
-              </div>
+              <Card
+                key={user.id}
+                name={user.name}
+                email={user.email}
+                city={user.address.city}
+              />
             ))}
-            </div>
           </div>
-        }
+        </div>
       </div>
     </div>
   );
