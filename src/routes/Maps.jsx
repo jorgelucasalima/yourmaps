@@ -60,9 +60,11 @@ export default function Maps() {
                 onCloseClick={handleCloseInfoWindow}
               >
                 <div>
-                  <h2>{selectedUser.name}</h2>
-                  <p>E-mail: {selectedUser.email}</p>
+                  <h2 className="text-md font-bold mb-2">{selectedUser.name}</h2>
                   <p>Cidade: {selectedUser.address.city}</p>
+                  <p>Rua: {selectedUser.address.street}</p>
+                  <p>Contato: {selectedUser.phone}</p>
+                  <p>Site: {selectedUser.website}</p>
                 </div>
               </InfoWindow>
             )}

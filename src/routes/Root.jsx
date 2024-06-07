@@ -19,13 +19,8 @@ export default function Root() {
         </nav>
       </aside>
 
-
       <main class="flex-1 p-4">
-          <h2 class="text-2xl font-bold">Conteúdo Principal</h2>
-          <p>Este é o conteúdo principal da página.</p>
-
           <Outlet />
-
       </main>
     </div>
   );
