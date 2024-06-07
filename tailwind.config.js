@@ -7,9 +7,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Inter', 'sans-serif'],
-        'serif': ['Inter', 'serif'],
-        'mono': ['Inter', 'monospace'],
+        'sans': ['Poppins', 'sans-serif'],
+        'serif': ['Poppins', 'serif'],
+        'mono': ['Poppins', 'monospace'],
+        'sans-bold': ['Poppins', 'sans-serif', 'bold'],
+        'sans-light': ['Poppins', 'sans-serif', 'light'],
       },
     },
   },

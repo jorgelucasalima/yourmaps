@@ -32,13 +32,12 @@ export default function User() {
     },
     validationSchema,
     onSubmit: values => {
-      console.log(values);
     },
   });
 
 
   return (
-    <div className="mx-auto p-6 m-2 bg-white rounded-lg shadow-lg">
+    <div className="mx-auto p-6 m-2 bg-white">
       <h2 className="text-3xl font-bold mb-6 text-gray-800">Criar Usuário</h2>
       <form onSubmit={formik.handleSubmit} className="space-y-6">
         <div>
