@@ -90,7 +90,10 @@ export default function Maps() {
 
   return (
     <div className="p-4">
-      <Filters onFilterChange={handleFilterChange} />
+      <div className="mb-4 w-auto">
+        <Filters onFilterChange={handleFilterChange} />
+      </div>
+      
 
       <div className="mt-4">
         <LoadScript
