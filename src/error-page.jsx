@@ -15,8 +15,8 @@ export default function ErrorPage() {
 
         <div className="mt-6">
           <Link
-            to="/maps"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded"
+            to="/"
+            className="bg-blue-primary hover:bg-blue-hover text-white font-bold py-4 px-6 rounded"
           >
             Voltar para a página inicial
           </Link>
