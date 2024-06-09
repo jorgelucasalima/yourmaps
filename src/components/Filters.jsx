@@ -9,13 +9,13 @@ export default function Filters({ onFilterChange }) {
   };
 
   return (
-    <div className="flex items-center mb-4 w-auto">
-      <p className="text-sm text-gray-800 mr-2">Filtre por continente:</p>
-      <div className="relative inline-block w-auto text-gray-700">
+    <div className="flex items-center mb-4 w-full md:w-auto">
+      <p className="text-sm text-gray-800 mr-2 md:mb-0">Filtre por continente:</p>
+      <div className="relative inline-block w-full md:w-auto text-gray-700">
         <select
           name="continente"
           id="continente"
-          className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
+          className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline md:w-auto"
           value={selectedContinent}
           onChange={handleFilterChange}
         >
@@ -36,8 +36,3 @@ export default function Filters({ onFilterChange }) {
     </div>
   );
 }
-
-
-//filtrar por continente
-// o resultado de users deve mudar de acordo com o filtro
-// o resultado dos pontos no mapa deve mudar tbm

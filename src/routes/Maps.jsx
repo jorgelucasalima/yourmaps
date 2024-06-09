@@ -41,8 +41,8 @@ export default function Maps() {
   }, [mapLoaded]);
 
   const containerStyle = {
-    width: '90%',
-    height: '500px'
+    width: '100%',
+    height: '1000px'
   };
 
   // Está essa localidade para ficar mais fácil do usuário vê alguém marcado no mapa
@@ -89,8 +89,7 @@ export default function Maps() {
 
   return (
     <div className="flex bg-white-primary">
-
-      <div>
+      <div className="w-full h-full">
         <div className="flex items-center justify-between mb-1 w-auto p-4">
           <h1 className="text-2xl font-bold text-blue-primary">Usuários</h1>
           <Filters onFilterChange={handleFilterChange} />
@@ -112,7 +111,7 @@ export default function Maps() {
 
       </div>
 
-      <div>
+      <div className="w-full h-full ">
           <LoadScript
             language='pt-BR'
             googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
@@ -128,7 +127,11 @@ export default function Maps() {
             <GoogleMap
               mapContainerStyle={containerStyle}
               center={center}
-              zoom={2}
+              zoom={4}
+              options={{
+                disableDefaultUI: true,
+                gestureHandling: 'cooperative',
+              }}
             >
               {filteredUsers.map(user => (
                 <Marker
@@ -156,9 +159,6 @@ export default function Maps() {
           </LoadScript>
         
       </div>
-
-
-
     </div>
   );
 }
