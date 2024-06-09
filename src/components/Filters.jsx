@@ -9,7 +9,7 @@ export default function Filters({ onFilterChange }) {
   };
 
   return (
-    <div className="flex flex-col items-center mb-4 w-full md:w-auto">
+    <div className="flex flex-col items-center mb-4 w-full md:w-auto ">
       <div className="flex flex-col md:flex-row md:items-center">
         <p className="text-sm text-gray-800 mb-2 md:mb-0 md:mr-4">Filtre por continente:</p>
         <div className="relative inline-block w-full md:w-auto text-gray-700">
