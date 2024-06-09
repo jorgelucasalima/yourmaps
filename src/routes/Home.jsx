@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import ImgWorldMap from "../assets/world-map.png";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -17,12 +18,12 @@ export default function Home() {
             experiência completa
           </p>
           <div className="flex space-x-4 pt-10">
-            <button onClick={() => window.location.href = '/maps'} className="bg-blue-primary hover:bg-blue-secondary text-white-primary py-4 px-6 rounded-xl">
+            <Link to="/maps" className="bg-blue-primary hover:bg-blue-secondary text-white-primary py-4 px-6 rounded-xl">
               Navegar com mapas
-            </button>
-            <button onClick={() => window.location.href = '/user'} className="bg-blue-primary hover:bg-blue-secondary text-white-primary py-4 px-6 rounded-xl">
+            </Link>
+            <Link to={"/user"} className="bg-blue-primary hover:bg-blue-secondary text-white-primary py-4 px-6 rounded-xl">
               Fazer cadastro
-            </button>
+            </Link>
           </div>
         </div>
         <img
