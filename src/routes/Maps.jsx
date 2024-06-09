@@ -42,7 +42,7 @@ export default function Maps() {
 
   const containerStyle = {
     width: '100%',
-    height: '1000px'
+    height: '1050px'
   };
 
   // Está essa localidade para ficar mais fácil do usuário vê alguém marcado no mapa
