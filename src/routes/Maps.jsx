@@ -90,7 +90,7 @@ export default function Maps() {
   return (
     <div className="flex bg-white-primary">
       <div className="w-full h-full">
-        <div className="flex items-center justify-between mb-1 w-auto p-4">
+        <div className="flex items-center justify-between w-auto p-4">
           <h1 className="text-2xl font-bold text-blue-primary">Usuários</h1>
           <Filters onFilterChange={handleFilterChange} />
         </div>
@@ -111,7 +111,7 @@ export default function Maps() {
 
       </div>
 
-      <div className="w-full h-full ">
+      <div className="w-full h-full">
           <LoadScript
             language='pt-BR'
             googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
