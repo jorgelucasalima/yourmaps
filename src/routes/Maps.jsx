@@ -127,7 +127,7 @@ export default function Maps() {
             <GoogleMap
               mapContainerStyle={containerStyle}
               center={center}
-              zoom={2}
+              zoom={3}
               options={{
                 disableDefaultUI: true,
                 gestureHandling: 'cooperative',
