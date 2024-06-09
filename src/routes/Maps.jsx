@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import api from '../services/api';
 import Card from '../components/Card';
@@ -9,14 +10,15 @@ export default function Maps() {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [mapLoaded, setMapLoaded] = useState(false);
-  const [filteredUsers, setFilteredUsers] = useState([]);
-  const [filter, setFilter] = useState('');
+
+  //estados redux
+  const selectedContinent = useSelector(state => state.selectedContinent);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     api.get('/users')
       .then(response => {
         setUsers(response.data);
-        setFilteredUsers(response.data);
       })
       .catch(error => {
         console.error(error);
@@ -77,22 +79,16 @@ export default function Maps() {
     setSelectedUser(null);
   };
 
-  const handleFilterChange = (selectedContinent) => {
-    setFilter(selectedContinent);
-    if (selectedContinent === '') {
-      setFilteredUsers(users);
-    } else {
-      const filtered = users.filter(user => getContinent(user.address.geo.lat, user.address.geo.lng) === selectedContinent);
-      setFilteredUsers(filtered);
-    }
-  };
+  const filteredUsers = selectedContinent
+  ? users.filter(user => getContinent(parseFloat(user.address.geo.lat), parseFloat(user.address.geo.lng)) === selectedContinent)
+  : users;
 
   return (
     <div className="flex bg-white-primary">
       <div className="w-full h-full">
         <div className="flex items-center justify-between w-auto p-4">
           <h1 className="text-2xl font-bold text-blue-primary">Usuários</h1>
-          <Filters onFilterChange={handleFilterChange} />
+          <Filters  />
         </div>
 
 

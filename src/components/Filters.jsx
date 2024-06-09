@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setContinent } from '../redux/actions';
 
-export default function Filters({ onFilterChange }) {
-  const [selectedContinent, setSelectedContinent] = useState('');
+export default function Filters() {
+  const dispatch = useDispatch();
 
-  const handleFilterChange = (event) => {
-    setSelectedContinent(event.target.value);
-    onFilterChange(event.target.value);
+  const handleContinentChange = (event) => {
+    dispatch(setContinent(event.target.value));
   };
 
   return (
@@ -17,8 +17,8 @@ export default function Filters({ onFilterChange }) {
             name="continente"
             id="continente"
             className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline md:w-auto"
-            value={selectedContinent}
-            onChange={handleFilterChange}
+            //value={selectedContinent}
+            onChange={handleContinentChange}
           >
             <option value="">Todos</option>
             <option value="africa">África</option>
