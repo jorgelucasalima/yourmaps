@@ -26,10 +26,6 @@ yarn install
 ## Configuração da Variável de Ambiente
 Certifique-se de configurar a variável de ambiente .env e incluir VITE_GOOGLE_MAPS_API_KEY no seu ambiente de desenvolvimento. Você pode obter uma chave da API do Google Maps na Console de Desenvolvedor do Google.
 
-ou
-
-- Para executar de forma local, estarei disponibilizando a key provisoriamente: AIzaSyARiREHKRIXQo_EdDaSyfJH_hQCjS961Yw
-
 ## Execução do Projeto
 Agora, você pode iniciar o servidor de desenvolvimento usando o seguinte comando:
 ```
