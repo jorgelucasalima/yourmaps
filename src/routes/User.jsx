@@ -32,16 +32,16 @@ export default function User() {
 
 
   return (
-    <div className="mx-auto p-8 m-6 bg-white-primary rounded-lg md:w-1/2 lg:w-1/3">
-      <div className='space-y-4'>
+    <div className="bg-white-primary p-12">
+      <div className='space-y-4 p-8 rounded-lg bg-white-tertiary'>
         <h2 className="text-3xl font-bold mb-6 text-blue-primary">Criar Usuário</h2>
-        <form onSubmit={formik.handleSubmit} className="space-y-6 bg-white-primary">
+        <form onSubmit={formik.handleSubmit} className="space-y-6 bg-white-tertiary">
           <div className="space-y-4">
             <input
               type="text"
               name="name"
               placeholder="Nome"
-              className="w-full p-2 border rounded-lg md:w-96"
+              className="w-full p-2 border rounded-lg"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.name}
@@ -54,7 +54,7 @@ export default function User() {
               type="email"
               name="email"
               placeholder="E-mail"
-              className="w-full p-2 border rounded-lg md:w-96"
+              className="w-full p-2 border rounded-lg "
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.email}
@@ -67,7 +67,7 @@ export default function User() {
               type="text"
               name="city"
               placeholder="Cidade"
-              className="w-full p-2 border rounded-lg md:w-96"
+              className="w-full p-2 border rounded-lg"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.city}
@@ -81,7 +81,7 @@ export default function User() {
                 type="number"
                 name="geo.lat"
                 placeholder="Latitude"
-                className="w-full p-2 border rounded-lg md:w-96"
+                className="w-full p-2 border rounded-lg"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.geo.lat}
@@ -94,7 +94,7 @@ export default function User() {
                 type="number"
                 name="geo.lng"
                 placeholder="Longitude"
-                className="w-full p-2 border rounded-lg md:w-96"
+                className="w-full p-2 border rounded-lg"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.geo.lng}
@@ -107,7 +107,7 @@ export default function User() {
 
           <button
             type="submit"
-            className="w-full p-2 rounded-lg bg-blue-primary text-white-primary font-semibold hover:bg-blue-secondary transition-colors md:w-96"
+            className="w-full p-2 rounded-lg bg-blue-primary text-white-primary font-semibold hover:bg-blue-secondary transition-colors "
           >
             Cadastrar
           </button>

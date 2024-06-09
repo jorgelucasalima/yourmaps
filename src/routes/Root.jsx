@@ -6,7 +6,7 @@ export default function Root() {
   return (
       <main class="flex flex-col min-h-screen">
         <Header/>
-        <div className="flex-grow">
+        <div className="flex-grow bg-white-primary">
           <Outlet />
         </div>
         <Footer/>
