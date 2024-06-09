@@ -9,8 +9,8 @@ export default function Filters({ onFilterChange }) {
   };
 
   return (
-    <div>
-      <h1 className="text-md font-bold mb-2 text-gray-800">Filtros:</h1>
+    <div className="flex items-center mb-4 w-auto">
+      <p className="text-sm text-gray-800 mr-2">Filtre por continente:</p>
       <div className="relative inline-block w-auto text-gray-700">
         <select
           name="continente"

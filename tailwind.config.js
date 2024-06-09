@@ -25,6 +25,7 @@ export default {
         'white': {
           'primary': '#f0f0f0',
           'secondary': '#F5F5F5',
+          'tertiary': '#FFFFFF',
         }
 
       }

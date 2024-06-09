@@ -16,7 +16,7 @@ export default function Maps() {
     api.get('/users')
       .then(response => {
         setUsers(response.data);
-        setFilteredUsers(response.data); 
+        setFilteredUsers(response.data);
       })
       .catch(error => {
         console.error(error);
@@ -41,8 +41,8 @@ export default function Maps() {
   }, [mapLoaded]);
 
   const containerStyle = {
-    width: '100%',
-    height: '400px'
+    width: '90%',
+    height: '500px'
   };
 
   // Está essa localidade para ficar mais fácil do usuário vê alguém marcado no mapa
@@ -68,7 +68,6 @@ export default function Maps() {
       return 'other';
     }
   };
-  
 
   const handleMarkerClick = (user) => {
     setSelectedUser(user);
@@ -89,60 +88,17 @@ export default function Maps() {
   };
 
   return (
-    <div className="p-4">
-      <div className="mb-4 w-auto">
-        <Filters onFilterChange={handleFilterChange} />
-      </div>
-      
+    <div className="flex bg-white-primary">
 
-      <div className="mt-4">
-        <LoadScript
-          language='pt-BR'
-          googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
-          loadingElement={
-            <div className="flex items-center justify-center h-full">
-              <div className="text-center">
-                <p className="text-lg text-gray-700">Carregando o Google Maps...</p>
-              </div>
-            </div>
-          }
-          onLoad={() => setMapLoaded(true)}
-        >
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={2}
-          >
-            {filteredUsers.map(user => (
-              <Marker
-                key={user.id}
-                position={{ lat: parseFloat(user.address.geo.lat), lng: parseFloat(user.address.geo.lng) }}
-                title={user.name}
-                onClick={() => handleMarkerClick(user)}
-              />
-            ))}
-            {selectedUser && (
-              <InfoWindow
-                position={{ lat: parseFloat(selectedUser.address.geo.lat), lng: parseFloat(selectedUser.address.geo.lng) }}
-                onCloseClick={handleCloseInfoWindow}
-              >
-                <div>
-                  <h2 className="text-md font-bold mb-2">{selectedUser.name}</h2>
-                  <p>Cidade: {selectedUser.address.city}</p>
-                  <p>Rua: {selectedUser.address.street}</p>
-                  <p>Contato: {selectedUser.phone}</p>
-                  <p>Site: {selectedUser.website}</p>
-                </div>
-              </InfoWindow>
-            )}
-          </GoogleMap>
-        </LoadScript>
-      </div>
+      <div>
+        <div className="flex items-center justify-between mb-1 w-auto p-4">
+          <h1 className="text-2xl font-bold text-blue-primary">Usuários</h1>
+          <Filters onFilterChange={handleFilterChange} />
+        </div>
 
-      <div className="mt-4">
-        <h2 className="text-md font-bold mb-2">Usuários:</h2>
-        <div className="mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lx:grid-cols-4 gap-3">
+
+        <div className="mx-auto p-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lx:grid-cols-3 gap-3">
             {filteredUsers.map(user => (
               <Card
                 key={user.id}
@@ -153,7 +109,56 @@ export default function Maps() {
             ))}
           </div>
         </div>
+
       </div>
+
+      <div>
+          <LoadScript
+            language='pt-BR'
+            googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
+            loadingElement={
+              <div className="flex items-center justify-center h-full">
+                <div className="text-center">
+                  <p className="text-lg text-gray-700">Carregando o Google Maps...</p>
+                </div>
+              </div>
+            }
+            onLoad={() => setMapLoaded(true)}
+          >
+            <GoogleMap
+              mapContainerStyle={containerStyle}
+              center={center}
+              zoom={2}
+            >
+              {filteredUsers.map(user => (
+                <Marker
+                  key={user.id}
+                  position={{ lat: parseFloat(user.address.geo.lat), lng: parseFloat(user.address.geo.lng) }}
+                  title={user.name}
+                  onClick={() => handleMarkerClick(user)}
+                />
+              ))}
+              {selectedUser && (
+                <InfoWindow
+                  position={{ lat: parseFloat(selectedUser.address.geo.lat), lng: parseFloat(selectedUser.address.geo.lng) }}
+                  onCloseClick={handleCloseInfoWindow}
+                >
+                  <div>
+                    <h2 className="text-md font-bold mb-2">{selectedUser.name}</h2>
+                    <p>Cidade: {selectedUser.address.city}</p>
+                    <p>Rua: {selectedUser.address.street}</p>
+                    <p>Contato: {selectedUser.phone}</p>
+                    <p>Site: {selectedUser.website}</p>
+                  </div>
+                </InfoWindow>
+              )}
+            </GoogleMap>
+          </LoadScript>
+        
+      </div>
+
+
+
     </div>
   );
 }
